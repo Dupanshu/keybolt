@@ -13,6 +13,7 @@ const startBtn = utils.select('.start');
 const resetBtn = utils.select('.reset');
 const noOfHits = utils.select('.hits');
 const message = utils.select('.message');
+const h3 = utils.select('h3');
 
 
 const words = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 
@@ -84,6 +85,7 @@ utils.listen('click', startBtn, () => {
     displayRandomWord();
     resetBtn.style.visibility = 'visible';
     startBtn.style.visibility = 'hidden';
+    h3.style.marginLeft = '100%';
 });
 
 utils.listen('input', txtBox, e => {
