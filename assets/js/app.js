@@ -16,3 +16,4 @@ import * as utils from './utils.js';
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 utils.print('Welcome');
+utils.print('have to add . first before starting js');
