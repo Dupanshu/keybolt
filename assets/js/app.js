@@ -85,7 +85,7 @@ utils.listen('click', startBtn, () => {
     displayRandomWord();
     resetBtn.style.visibility = 'visible';
     startBtn.style.visibility = 'hidden';
-    h3.style.marginLeft = '100%';
+    h3.style.marginLeft = '140px';
 });
 
 utils.listen('input', txtBox, e => {
