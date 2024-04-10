@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Dupanshu">
+    <meta name="description" content="Fast Typing Game">
+    <meta name="keywords" content="HTML, CSS, JavaScript, JSON, API">
+    <title>Typing Game | Dupanshu</title>
+    <link rel="icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./assets/js/app.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <video autoplay muted loop id="video">
+        <source src="./assets/img/background.mp4" type="video/mp4">
+      </video>
+      <div class="container">
+        <div class="bx-game">
+          <h3>KeyBolt</h3>
+          <button class="start">Start</button>
+          <div class="timer">
+            <img class="img" src="./assets/img/stopwatch.png">
+            <span id="timer">00</span>
+          </div>
+          <p class="bx-word"></p>
+          <div class="text-input">
+            <input type="text" class="txt-box" placeholder="Enter the word">
+          </div>
+          <div class="bx-message">
+            <p class="message"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

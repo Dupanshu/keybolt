@@ -1,0 +1,92 @@
+@import url("./reset.css");
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  App                                                  */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+:root {
+  --background-dark: rgb(24, 23, 31);
+  --header-footer-color: #1A2737;
+  --w3school-color1: #1D2A35;
+  --w3school-color2: #15202B;
+  --w3school-color3: #282A35;
+  --cool-blue-color-ibm: #EDF5FF;
+  --game-box: #146f6a;
+}
+
+body {
+  background-color: var(--background-dark);
+}
+
+.container {
+  width: min(100% - 30px, 1080px);
+  margin-inline: auto;
+}
+
+/*video*/
+main {
+  height: 100svh;/* for mobile svh is better */
+}
+
+#video {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/*box*/
+.bx-game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: grid;
+  place-items: center;
+  justify-content: space-around;
+  height: 450px;
+  width: 370px;
+  background-color: var(--game-box);
+  border-radius: 5px;
+  /* border: solid 3px #fff; */
+}
+/* flex */
+h3 {
+  background-color: transparent;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--cool-blue-color-ibm);
+}
+
+button {
+  padding: 10px;
+  width: 110px;
+  margin-top: 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.start {
+  background-color: var(--w3school-color2);
+  color: #fff;
+}
+
+button:hover {
+  transform: scale(1.2px);
+}
+
+/*timer*/
+.timer {
+  color: #fff;
+  font-size: 38px;
+  font-weight: 500;
+  display: grid;
+  place-items: center;
+  justify-content: space-around;
+}
+
+.img {
+  height: 20px;
+  width: 20px;
+}
+
