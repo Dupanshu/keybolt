@@ -40,14 +40,13 @@ hitSound.volume = 0.3;
 
 let hits = 0;
 let timer = 10;
-let gameRunning = false;
 
 function updateTime() {
 
     time.innerHTML = `${timer}s`;
 
     if(timer > 0) {
-        timer--
+        timer--;
     } else if(timer === 0) {
         BgSound.pause();
         textInput.style.visibility = 'hidden';
@@ -74,6 +73,7 @@ function displayRandomWord() {
 
 utils.listen('click', startBtn, () => {
 
+    txtBox.disabled = false;
     setInterval(updateTime, 1000);
     textInput.style.visibility = 'visible';
     BgSound.play();
@@ -124,7 +124,8 @@ utils.listen('click', resetBtn, () => {
         'magician', 'professor', 'triangle', 'earthquake', 'baseball', 'beyond', 
         'evolution', 'banana', 'perfumer', 'computer', 'management', 'discovery', 
         'ambition', 'music', 'eagle', 'crown', 'chess', 'laptop', 'bedroom', 
-        'delivery', 'enemy', 'button', 'superman', 'library', 'unboxing', 'bookstore', 'language', 'homework', 'fantastic', 'economy', 'interview', 'awesome', 
+        'delivery', 'enemy', 'button', 'superman', 'library', 'unboxing', 'bookstore', 
+        'language', 'homework', 'fantastic', 'economy', 'interview', 'awesome', 
         'challenge', 'science', 'mystery', 'famous', 'league', 'memory', 'leather', 
         'planet', 'software', 'update', 'yellow', 'keyboard', 'window', 'population'
     );
@@ -139,5 +140,7 @@ utils.listen('click', resetBtn, () => {
     txtBox.focus();
     }, 0);
 });
+
+
 
 
