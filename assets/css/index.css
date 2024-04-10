@@ -10,7 +10,9 @@
   --w3school-color2: #15202B;
   --w3school-color3: #282A35;
   --cool-blue-color-ibm: #EDF5FF;
-  --game-box: #146f6a;
+  --game-box: #006a6a;
+  --app-ghost-white: #f8f8ff;
+  --app-deep-blue: #00bfff;
 }
 
 body {
@@ -43,13 +45,21 @@ main {
   display: grid;
   place-items: center;
   justify-content: space-around;
+  gap: 1.2rem;
+  grid-template-columns: repeat(2, 1fr);
   height: 450px;
   width: 370px;
   background-color: var(--game-box);
   border-radius: 5px;
+  box-shadow: 5px 3px 10px #00a5a5;
+  padding: 5px;
   /* border: solid 3px #fff; */
 }
-/* flex */
+/* grid-span */
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+
 h3 {
   background-color: transparent;
   font-size: 25px;
@@ -59,8 +69,8 @@ h3 {
 
 button {
   padding: 10px;
-  width: 110px;
-  margin-top: 30px;
+  width: 100px;
+  /* margin-top: 30px; */
   border-radius: 25px;
   cursor: pointer;
   align-items: center;
@@ -69,14 +79,28 @@ button {
 .start {
   background-color: var(--w3school-color2);
   color: #fff;
+  text-align: center;
+  font-weight: 500;
+  /* visibility: hidden; */
 }
 
-button:hover {
-  transform: scale(1.2px);
+.reset {
+  background-color: var(--app-ghost-white);
+  color: var(--header-footer-color);
+  border: solid 2px var(--header-footer-color);
+  text-align: center;
+  font-weight: 500;
+  /* visibility: hidden; */
+}
+
+.start:hover, .reset:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
 }
 
 /*timer*/
 .timer {
+  grid-row-start: 2;
   color: #fff;
   font-size: 38px;
   font-weight: 500;
@@ -86,7 +110,53 @@ button:hover {
 }
 
 .img {
+  margin-left: 5px;
   height: 20px;
   width: 20px;
+}
+
+/*box for words*/
+.bx-word {
+  grid-row-start: 3;
+  background-color: var(--w3school-color3);
+  padding: 10px;
+  border-radius: 5px;
+  width: 80%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/*hit count*/
+.hits {
+  grid-row-start: 4;
+  text-align: center;
+  font-size: 20px;
+}
+
+/*typing area*/
+.text-input {
+  grid-row-start: 5;
+}
+
+input[type=text] {
+  width: 260px;
+  height: 50px;
+  background-color: var(--cool-blue-color-ibm);
+  border-radius: 5px;
+  font-size: 15px;
+  color: #000;
+  text-align: center;
+}
+
+input::placeholder {
+  color: #000;
+}
+
+/*correct message*/
+.bx-message {
+  grid-row-start: 6;
+  color: #00bfff;
 }
 
