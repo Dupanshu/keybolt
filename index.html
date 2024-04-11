@@ -16,6 +16,16 @@
       <video autoplay muted loop id="video">
         <source src="./assets/img/background.mp4" type="video/mp4">
       </video>
+      <div class="high-score-dlg">
+        <h2>High Scores</h2>
+        <ul class="ul-content">
+          <li class="li-items">
+            <span class="rank"></span>
+            <span class="score"></span>
+            <span class="date"></span>
+          </li>
+        </ul>
+      </div>
       <div class="container">
         <div class="bx-game">
           <h3>KeyBolt</h3>
@@ -30,7 +40,7 @@
             <p><span class="hits">00</span> Hits</p>
           </div>
           <div class="text-input grid-col-span-2">
-            <input type="text" class="txt-box" placeholder="Enter the word" disabled>
+            <input type="text" class="txt-box" id="txt-box" placeholder="Enter the word" disabled>
           </div>
             <p class="message grid-col-span-2">Correct!</p>
           <p class="base grid-col-span-2">&copy;Dupanshu</p>

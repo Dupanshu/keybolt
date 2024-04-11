@@ -106,9 +106,6 @@ button {
   color: #fff;
   font-size: 38px;
   font-weight: 500;
-  display: grid;
-  place-items: center;
-  justify-content: space-around;
 }
 
 .img {
@@ -166,5 +163,35 @@ input::placeholder {
 
 .base {
   translate: 0px -15px;
+}
+
+/* high score dilog */
+.high-score-dlg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--game-box);
+  width: 250px;
+  height: 100dvh;
+  opacity: 0.7;
+  padding: 20px 10px;
+  display: grid;
+  place-items: top;
+  grid-template-columns: repeat(1, 1fr);
+  visibility: hidden;
+}
+
+.high-score-dlg h2 {
+  margin: 0px auto;
+}
+
+.li-items {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  span {
+    font-size: 20px;
+    font-family: monospace;
+  }
 }
 

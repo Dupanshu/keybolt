@@ -8,12 +8,14 @@ utils.print('Welcome');
 const time = utils.select('.time');
 const term = utils.select('.bx-word');
 const textInput = utils.select('.text-input');
-const txtBox = utils.select('.txt-box');
+const txtBox = utils.select('#txt-box');
 const startBtn = utils.select('.start');
 const resetBtn = utils.select('.reset');
 const noOfHits = utils.select('.hits');
 const message = utils.select('.message');
 const h3 = utils.select('h3');
+const scoreBoard = utils.select('.high-score-dlg');
+const ulContent = utils.select('.ul-content');
 
 
 const words = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 
@@ -39,7 +41,7 @@ hitSound.type = 'audio/mp3';
 hitSound.volume = 0.3;
 
 let hits = 0;
-let timer = 10;
+let timer = 10;/* change later */
 
 function updateTime() {
 
@@ -50,6 +52,11 @@ function updateTime() {
     } else if(timer === 0) {
         BgSound.pause();
         textInput.style.visibility = 'hidden';
+        addHits(hits, new Date().toLocaleDateString());
+        if(highScores.length > 0){
+            updateScores();
+            scoreBoard.style.visibility = 'visible';
+        }
     }
 }
 
@@ -98,12 +105,12 @@ utils.listen('input', txtBox, e => {
         displayRandomWord();
         message.style.visibility = 'visible';
         setTimeout(() => {
-            message.style.visibility = 'hidden'; 
-        }, 1000);
+            message.style.visibility = 'hidden';
+        }, 1500);
     } else {
         return false;
     };
-    console.log(e.target.value);
+    //console.log(e.target.value);
     e.target.value = '';
     updateTime();
 });
@@ -139,8 +146,83 @@ utils.listen('click', resetBtn, () => {
     setTimeout(() => {
     txtBox.focus();
     }, 0);
+    //updateScores();
 });
 
 
+/* highscore */
 
+/* change scoreboard visibility in updatescores */
+
+/* Window.onload = function() {
+    highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    updateScores();
+    //scoreBoard.style.visibility = 'visible';
+}; */
+
+let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+function scoreObj(hits, date) {
+    return {
+        hits: hits,
+        date: date,
+
+        getHits: function() {
+            return this.hits;
+        },
+        getDate: function() {
+            return this.date;
+        }
+    };
+}
+
+function addHits(hits, date) {
+    let score = scoreObj(hits, date);
+    if(highScores.length === 0 || hits > highScores[highScores.length - 1].hits) {
+        highScores.unshift(score);
+        highScores.splice(9);
+        highScores.sort((a,b) => b.hits - a.hits);
+        
+    }
+    //updateScores();
+}
+
+localStorage.setItem('highScores', JSON.stringify(highScores));
+
+function scoreBoardItem(score, index) {
+    const li = utils.create('li');
+    li.className = 'li-items';
+
+    const rankSpan = utils.create('span');
+    rankSpan.className = 'rank';
+    rankSpan.innerText = `#${index + 1}`;
+    li.appendChild(rankSpan);
+
+    const hitsSpan = utils.create('span');
+    hitsSpan.className = 'hits';
+    hitsSpan.innerText = score.hits;
+    li.appendChild(hitsSpan);
+
+    const dateSpan = utils.create('span');
+    dateSpan.className = 'date';
+    dateSpan.innerText = score.date;
+    li.appendChild(dateSpan);
+
+    return li;
+}
+
+function updateScores() {
+    ulContent.innerHTML = '';
+
+    if(highScores.length === 0) {
+        const scoreMsg = utils.create('p');
+        ulContent.appendChild(scoreMsg);
+    } else {
+        highScores.forEach(function(score, index) {
+            const scBdItem = scoreBoardItem(score, index);
+            ulContent.appendChild(scBdItem);
+            scoreBoard.style.visibility = 'visible';
+        });
+    }
+}
 
